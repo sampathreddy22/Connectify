@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "connectify"
+version = "0.1.0"
+description = ""
+authors = ["sampathreddy22 <sampathreddy.jonnala@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.109.2"
+uvicorn = {extras = ["standard"], version = "^0.27.1"}
+sqlalchemy = "1.4.51"
+python-dotenv = "^1.0.1"
+databases = {extras = ["aiosqlite"], version = "^0.8.0"}
+pydantic-settings = "^2.2.0"
+rich = "^13.7.0"
+
+[tool.isort]
+profile = "black"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.2.0"
+ruff = "^0.2.1"
+isort = "^5.13.2"
+pytest = "^8.0.1"
+pytest-cov = "^4.1.0"
+httpx = "^0.26.0"
+debugpy = "^1.8.1"
+importlib-metadata = "^7.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = ["--cov=connectify", "--cov-report=term-missing", "--cov-report=html", "--cov-branch", "--cov-fail-under=100", "--cov-config=pyproject.toml"]
+testpaths = ["tests"]
